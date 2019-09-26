@@ -80,5 +80,38 @@ class StartQState extends State<StartQ> {
         ));
   }
 
-  void navigateToRoute(String department) {}
+  void navigateToRoute(String department) {
+    switch(department) {
+      case 'Chemical and Process Engineering': {
+        break;
+      }
+      case 'Civil Engineering':{
+        break;
+      }
+      case 'Computer Science and Engineering':{
+        break;
+      }
+      case 'Earth Resources and Engineering':{
+        break;
+      }
+      case 'Electrical Engineering':{
+        break;
+      }
+      case 'Electronic and Telecommunication Engineering':{
+        break;
+      }
+      case 'Material Science and Engineering':{
+        break;
+      }
+      case 'Mechanical Engineering':{
+        break;
+      }
+      case 'Textile and Clothing Technology':{
+        break;
+      }
+      case 'Transport and Logistics Management':{
+        break;
+      }
+    }
+  }
 }
