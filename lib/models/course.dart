@@ -8,14 +8,12 @@ class Course {
   String courseName;
   int semester;
   Float credit;
-  String department;
 
   static final columns = [
     'course_id',
     'course_name',
     'semester',
     'credit',
-    'dept_id'
   ];
 
   Map toMap() {
@@ -24,7 +22,6 @@ class Course {
       'course_name': courseName,
       'semester':semester,
       'credit': credit,
-      'dept_id': department,
     };
 
     return map;
@@ -36,7 +33,6 @@ class Course {
     course.courseName = map['course_name'];
     course.semester = map['semester'];
     course.credit = map['credit'];
-    course.department = map['dept_id'];
 
     return course;
   }
