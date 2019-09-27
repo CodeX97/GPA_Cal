@@ -9,12 +9,22 @@ class CSEScreen extends StatelessWidget {
       appBar: new AppBar(
         title: new Text('Computer Science and Engineering'),
       ),
-      body: _buildSelectSem(),
+      body: Container(
+        child: Column(children: [_buildSelectSem()]),
+      ),
       backgroundColor: Color.fromRGBO(3, 48, 22, 1),
     );
   }
 
   Widget _buildSelectSem() {
-    return null;
+    return ListView.builder(
+        itemCount: 8,
+        itemBuilder: (context, i) {
+          return _buildRow(context);
+        });
   }
+}
+
+Widget _buildRow(context) {
+  return Text('Hello');
 }
