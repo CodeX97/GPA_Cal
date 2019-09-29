@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/StartQ.dart';
-
+import 'package:gpa_calculator/screens/CSEScreen.dart';
+import 'screens/CSEScreen.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -9,9 +9,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'GPA Calculator',
       theme: ThemeData(
-        primaryColor: Color.fromRGBO(1, 24, 11, 1),
+        primaryColor: Color.fromRGBO(36, 54, 54, 1),
       ),
-      home: StartQ(),
+      home: CSEScreen(),
     );
   }
 }

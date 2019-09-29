@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'CSEScreen.dart';
+import 'package:gpa_calculator/screens/CSEScreen.dart';
 
 class StartQ extends StatefulWidget {
   StartQState createState() => StartQState();
@@ -7,24 +7,26 @@ class StartQ extends StatefulWidget {
 
 class StartQState extends State<StartQ> {
   final _departments = <String>[
-    'Chemical and Process Engineering',
-    'Civil Engineering',
+    //TODO: Uncomment after implementing
+
+    //'Chemical and Process Engineering',
+    //'Civil Engineering',
     'Computer Science and Engineering',
-    'Earth Resources and Engineering',
-    'Electrical Engineering',
-    'Electronic and Telecommunication Engineering',
-    'Material Science and Engineering',
-    'Mechanical Engineering',
-    'Textile and Clothing Technology',
-    'Transport and Logistics Management'
+    //'Earth Resources and Engineering',
+    //'Electrical Engineering',
+    //'Electronic and Telecommunication Engineering',
+    //'Material Science and Engineering',
+    //'Mechanical Engineering',
+    //'Textile and Clothing Technology',
+    //'Transport and Logistics Management'
   ];
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GPA Calculator  |  Uom E-Fac'),
+        title: Text('GPA Calculator'),
       ),
       body: _buildSelectDept(),
-      backgroundColor: Color.fromRGBO(3, 48, 22, 1),
+      backgroundColor: Color.fromRGBO(21, 99, 94, 1),
     );
   }
 
@@ -56,7 +58,7 @@ class StartQState extends State<StartQ> {
           child: RaisedButton(
             onPressed: () => navigateToRoute(department),
             textColor: Colors.white,
-            color: Color.fromRGBO(1, 24, 11, 1),
+            color: Color.fromRGBO(36, 54, 54, 1),
             shape: RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0)),
             child: Text(department,
