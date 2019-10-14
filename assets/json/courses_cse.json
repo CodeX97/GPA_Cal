@@ -1,0 +1,702 @@
+[
+    {
+        "sem": 1,
+        "modules": [
+            {
+                "module_id": "MA1013",
+                "module_name": "Mathematics",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS1032 ",
+                "module_name": "Programming Fundamentals",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "ME1032",
+                "module_name": "Mechanics",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MT1022",
+                "module_name": "Properties of Materials",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CE1022",
+                "module_name": "Fluid Mechanics",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "EE1012",
+                "module_name": "Electrical Engineering",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "EL1012",
+                "module_name": "Language Skill Enhancement I",
+                "credit": 1.0,
+                "elective": 0
+            }
+        ]
+    },
+    {
+        "sem": 2,
+        "modules": [
+            {
+                "module_id": "CS2012",
+                "module_name": "Principles of Object Oriented Programming",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS2022",
+                "module_name": "Data Structures and Algorithms",
+                "credit": 2.5,
+                "elective": 0
+            },
+            {
+                "module_id": "CS2052",
+                "module_name": "Computer Architecture",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "EN1012",
+                "module_name": "Electronics Devices and Circuits",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MA1032",
+                "module_name": "Numerical Method for Computer Science",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "EE2093",
+                "module_name": "Theory of Electricity",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS2952",
+                "module_name": "Communication Skills",
+                "credit": 1.5,
+                "elective": 0
+            },
+            {
+                "module_id": "ME1802",
+                "module_name": "Introduction to Manufacturing Engineering",
+                "credit": 2.5,
+                "elective": 0
+            }
+        ]
+    },
+    {
+        "sem": 3,
+        "modules": [
+            {
+                "module_id": "CS2032",
+                "module_name": "Principles of Computer Communication",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS2042",
+                "module_name": "Operating Systems",
+                "credit": 2.5,
+                "elective": 0
+            },
+            {
+                "module_id": "CS2062",
+                "module_name": "Object Oriented Software Development",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "EN2022",
+                "module_name": "Digital Electronics",
+                "credit": 2.5,
+                "elective": 0
+            },
+            {
+                "module_id": "CE1822",
+                "module_name": "Aspects of Civil Engineering",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "ME1822",
+                "module_name": "Basic Engineering Thermodynamics",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS2150",
+                "module_name": "Graph Theory for Computing",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MA2073",
+                "module_name": "Calculus for System Modelling",
+                "credit": 2.0,
+                "elective": 0
+            }
+        ]
+    },
+    {
+        "sem": 4,
+        "modules": [
+            {
+                "module_id": "CS3022",
+                "module_name": "Software Engineering",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3032",
+                "module_name": "Computer Networks",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3042",
+                "module_name": "Database Systems",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MA2033",
+                "module_name": "Linear Algebra",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MA2063",
+                "module_name": "Differential Equations and Applications",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "EN2062",
+                "module_name": "Signals & Systems",
+                "credit": 2.5,
+                "elective": 0
+            },
+            {
+                "module_id": "DE1XXX",
+                "module_name": "Humanities Elective I",
+                "credit": 2.0,
+                "elective": 0
+            }
+        ]
+    },
+    {
+        "sem": 5,
+        "modules": [
+            {
+                "module_id": "CS3202",
+                "module_name": "Software Engineering Project",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3052",
+                "module_name": "Computer Security",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3062",
+                "module_name": "Theory of Computing",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3242",
+                "module_name": "Micro-controllers and Applications",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MN3042",
+                "module_name": "Business Economics & Financial Accounting",
+                "credit": 3.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MA3013",
+                "module_name": "Applied Statistics",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3212",
+                "module_name": "Software Architecture and Design",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS3412",
+                "module_name": "Advanced Networking",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS3512",
+                "module_name": "Programming Languages",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS3612",
+                "module_name": "Intelligent Systems",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS3712",
+                "module_name": "Image Processing",
+                "credit": 3.0,
+                "elective": 1
+            }
+        ]
+    },
+    {
+        "sem": 6,
+        "modules": [
+            {
+                "module_id": "CS4012",
+                "module_name": "Professional Practice",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3962",
+                "module_name": "Research and Report Writing",
+                "credit": 1.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS3312",
+                "module_name": "Embedded System Design",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4232",
+                "module_name": "Formal Methods in Software Engineering",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4242",
+                "module_name": "Human Computer Interaction",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4532",
+                "module_name": "Concurrent Programming",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS44742",
+                "module_name": "Bioinformatics",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "DE2XXX",
+                "module_name": "Humanities Elective II",
+                "credit": 2.0,
+                "elective": 1
+            }
+        ]
+    },
+    {
+        "sem": 7,
+        "modules": [
+            {
+                "module_id": "CS4202",
+                "module_name": "Research and Development Project",
+                "credit": 5.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MN4062",
+                "module_name": "Organizational Behavior and Management",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS4222",
+                "module_name": "Software Process and Management",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4232",
+                "module_name": "Formal Methods in Software Engineering",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4242",
+                "module_name": "Human Computer Interaction",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4252",
+                "module_name": "Advanced Operating Systems",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4262",
+                "module_name": "Distributed Systems",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4272",
+                "module_name": "Quality Engineering",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4322",
+                "module_name": "Digital System Design ",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4332",
+                "module_name": "Computer Aided Digital Design",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4342",
+                "module_name": "Advanced Computer Architecture",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4352",
+                "module_name": "Robotics and Automation",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4432",
+                "module_name": "Network and System Administration",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4442",
+                "module_name": "Current Trends in Networking",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4462",
+                "module_name": "Computer & Network Security",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4472",
+                "module_name": "Mobile Computing",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4482",
+                "module_name": "High Performance Networking",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4492",
+                "module_name": "Wireless and Broadband Networking",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4522",
+                "module_name": "Advanced Algorithms",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4352",
+                "module_name": "Concurrent Programming",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4542",
+                "module_name": "Compiler Design",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4552",
+                "module_name": "Scientific Computing",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4622",
+                "module_name": "Machine Learning",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4632",
+                "module_name": "Database Internals",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4642",
+                "module_name": "Data Mining & Information Retrieval",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4722",
+                "module_name": "Computer Vision",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4732",
+                "module_name": "Computer Graphics",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4742",
+                "module_name": "Bioinformatics",
+                "credit": 3.0,
+                "elective": 1
+            }
+        ]
+    },
+    {
+        "sem": 8,
+        "modules": [
+            {
+                "module_id": "CS4202",
+                "module_name": "Research and Development Project",
+                "credit": 5.0,
+                "elective": 0
+            },
+            {
+                "module_id": "MN4122",
+                "module_name": "Human Resource Management & Industrial Relations",
+                "credit": 2.0,
+                "elective": 0
+            },
+            {
+                "module_id": "CS4222",
+                "module_name": "Software Process and Management",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4232",
+                "module_name": "Formal Methods in Software Engineering",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4242",
+                "module_name": "Human Computer Interaction",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4252",
+                "module_name": "Advanced Operating Systems",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4262",
+                "module_name": "Distributed Systems",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4272",
+                "module_name": "Quality Engineering",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4322",
+                "module_name": "Digital System Design ",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4332",
+                "module_name": "Computer Aided Digital Design",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4342",
+                "module_name": "Advanced Computer Architecture",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4352",
+                "module_name": "Robotics and Automation",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4432",
+                "module_name": "Network and System Administration",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4442",
+                "module_name": "Current Trends in Networking",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4452",
+                "module_name": "Information Security & Cryptography",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4462",
+                "module_name": "Computer & Network Security",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4472",
+                "module_name": "Mobile Computing",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4482",
+                "module_name": "High Performance Networking",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4492",
+                "module_name": "Wireless and Broadband Networking",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4522",
+                "module_name": "Advanced Algorithms",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4352",
+                "module_name": "Concurrent Programming",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4542",
+                "module_name": "Compiler Design",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4552",
+                "module_name": "Scientific Computing",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4622",
+                "module_name": "Machine Learning",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4632",
+                "module_name": "Database Internals",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4642",
+                "module_name": "Data Mining & Information Retrieval",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4722",
+                "module_name": "Computer Vision",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4732",
+                "module_name": "Computer Graphics",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "CS4742",
+                "module_name": "Bioinformatics",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "MA4013",
+                "module_name": "Linear Models and Multivariate Statistics",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "MA4023",
+                "module_name": "Operational Research",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "MA4033",
+                "module_name": "Time Series & Stochastic Process",
+                "credit": 3.0,
+                "elective": 1
+            },
+            {
+                "module_id": "MA4053",
+                "module_name": "Numerical Analysis for Scientific",
+                "credit": 3.0,
+                "elective": 1
+            }
+        ]
+    }
+]

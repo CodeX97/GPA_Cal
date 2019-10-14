@@ -1,195 +1,170 @@
-import 'dart:collection';
-import 'dart:developer';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:gpa_calculator/classes/colors.dart';
+import 'package:gpa_calculator/models/readJson.dart';
 
-import 'Sem1Screen.dart';
+//Added cupertino ios routing animation through creating a routing class
+class CSEPageRoute extends CupertinoPageRoute {
+  CSEPageRoute() : super(builder: (BuildContext context) => new CSEScreen());
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return new FadeTransition(opacity: animation, child: new CSEScreen());
+  }
+}
 
 class CSEScreen extends StatefulWidget {
   CSEScreenState createState() => CSEScreenState();
 }
 
 class CSEScreenState extends State<CSEScreen> {
-  int _count = 1;
-  List<Widget> _semesterCards = [Divider()];
-  List<Widget> _hideButtons = [];
-  ScrollController _scrollController = new ScrollController();
+  int sem = 1;
+  final GlobalKey<ScaffoldState> _key = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => _buildCard(),
-        label: Text('Add Semester',
-            textAlign: TextAlign.center, style: TextStyle(fontSize: 18)),
-        splashColor: Color.fromRGBO(21, 99, 94, 1),
-        icon: Icon(IconData(57670, fontFamily: 'MaterialIcons')),
-        backgroundColor: Color.fromRGBO(36, 54, 54, 1),
-      ),
-      appBar: new AppBar(
-        title: new Text('GPA Calculator'),
+    var size = MediaQuery.of(context).size; //Get current device size
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+              child: Icon(Icons.add_circle_outline),
+              onPressed: () {
+                if (sem < 8) {
+                  setState(() {
+                    sem++;
+                  });
+                } else {
+                  _key.currentState.showSnackBar(
+                    SnackBar(
+                      content: Text("Can't add more semesters !"),
+                    ),
+                  );
+                }
+              }),
+          SizedBox(
+            width: size.width * 0.05,
+          ),
+          FloatingActionButton(
+            child: Icon(Icons.remove_circle_outline),
+            onPressed: () {
+              setState(() {
+                sem--;
+              });
+            },
+          ),
+        ],
       ),
       body: Container(
-          padding: EdgeInsets.all(20.0),
-          child: ListView(
-            controller: _scrollController,
-            reverse: false,
-            shrinkWrap: true,
-            children: UnmodifiableListView(_semesterCards),
-          )),
-      backgroundColor: Color.fromRGBO(21, 99, 94, 1),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            stops: [0.1, 0.5, 0.7, 0.9],
+            colors: [
+              AppColor.colors[1].color,
+              AppColor.colors[3].color,
+              AppColor.colors[3].color,
+              AppColor.colors[3].color,
+            ],
+          ),
+        ),
+        child: FutureBuilder(
+          future: loadCSE(),
+          builder: (context, cseSnap) {
+            switch (cseSnap.connectionState) {
+              case ConnectionState.none:
+                return Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    size.width * 0.35,
+                    size.height * 0.425,
+                    size.width * 0.35,
+                    size.height * 0.425,
+                  ),
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: size.height * 0.05,
+                    width: size.width * 0.3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: AppColor.colors[1].color,
+                      ),
+                      color: Colors.white,
+                    ),
+                    child: Text('Error Occured !'),
+                  ),
+                );
+              case ConnectionState.active:
+              case ConnectionState.waiting:
+                return Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    size.width * 0.35,
+                    size.height * 0.425,
+                    size.width * 0.35,
+                    size.height * 0.425,
+                  ),
+                  child: Container(
+                    alignment: Alignment.center,
+                    height: size.height * 0.05,
+                    width: size.width * 0.3,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: AppColor.colors[1].color,
+                        //color: Color.fromRGBO(36, 209, 99, 0.9),
+                      ),
+                      color: Colors.white,
+                    ),
+                    child: Text('Loading ...'),
+                  ),
+                );
+              case ConnectionState.done:
+                if (cseSnap.hasError) return Text('Error: ${cseSnap.error}');
+                return ListView.builder(
+                  itemCount: sem,
+                  itemBuilder: (context, position) {
+                    return buildSem(
+                      context,
+                      size,
+                      cseSnap.data.semesters[position],
+                    ); //builds sem per item in the list from db
+                  },
+                );
+            }
+            return null; // unreachable
+          },
+        ),
+      ),
     );
   }
 
-  void _buildCard() {
-    //double screenHeight = MediaQuery.of(context).size.height;
-    if (_count > 8) {
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              backgroundColor: Color.fromRGBO(36, 54, 54, 1),
-              content: Text(
-                "Can't add more semesters.",
-                style: TextStyle(color: Colors.white),
-              ),
-              actions: <Widget>[
-                new FlatButton(
-                  child: Text(
-                    'OK',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                )
-              ],
-            );
-          });
-    } else {
-      _hideButtons = List.from(_hideButtons)..add(_semesterCards.last);
-      _semesterCards.removeLast();
-      _semesterCards = List.from(_semesterCards)
-        ..add(SizedBox(
-          height: 210,
-          child: Card(
-            color: Color.fromRGBO(36, 54, 54, 1),
-            child: Column(
-              children: [
-                ListTile(
-                  title: Text('Semester $_count',
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500, color: Colors.white)),
-                  leading: Icon(
-                    const IconData(59404, fontFamily: 'MaterialIcons'),
-                    color: Colors.white,
-                  ),
-                ),
-                Divider(
-                  color: Colors.white,
-                ),
-                ListTile(
-                  title: Text('GPA = ',
-                      style: TextStyle(
-                          fontWeight: FontWeight.w300, color: Colors.white)),
-                ),
-                ListTile(
-                  title: Center(
-                    child: RaisedButton(
-                      onPressed: () => navigateToRoute(_count),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(5.0)),
-                      textColor: Colors.white,
-                      color: Color.fromRGBO(21, 99, 94, 1),
-                      child: Text('Add Data'),
-                    ),
-                  ),
-                ),
-              ],
+  Widget buildSem(context, size, sem) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(size.width * 0.08, size.height * 0.02,
+          size.width * 0.08, size.height * 0.02),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: AppColor.colors[1].color,
+          ),
+          color: Colors.white,
+        ),
+        child: ExpansionTile(
+          title: Text(
+            'Semester ${sem.sem}',
+            style: TextStyle(
+              color: AppColor.colors[1].color,
+              fontSize: size.height * 0.02,
             ),
           ),
-        ));
-      _semesterCards = List.from(_semesterCards)
-        ..add(RaisedButton(
-            onPressed: () {
-              _semesterCards.removeLast();
-              _semesterCards.removeAt(-2);
-              _semesterCards =
-                  List.from((_semesterCards)..add(_hideButtons.last));
-              setState(() => --_count);
-            },
-            child: Text('Remove Semester')));
-      _scrollController.animateTo(
-        1000,
-        curve: Curves.easeIn,
-        duration: const Duration(milliseconds: 800),
-      );
-      setState(() => ++_count);
-    }
-  }
-
-  void navigateToRoute(int sem) {
-    switch (sem) {
-      case 1:
-        {
-          Navigator.push(context,
-              new MaterialPageRoute(builder: (context) => new Sem1Screen()));
-          break;
-        }
-      case 2:
-        {
-          // Navigator.push(
-          //   context,
-          //   new MaterialPageRoute(builder: (context)=> new CEScreen())
-          // );
-          break;
-        }
-      case 3:
-        {
-          // Navigator.push(context,
-          // route)
-          break;
-        }
-      case 4:
-        {
-          // Navigator.push(
-          //   context,
-          //   new MaterialPageRoute(builder: (context)=> new EREScreen())
-          // );
-          break;
-        }
-      case 5:
-        {
-          // Navigator.push(
-          //   context,
-          //   new MaterialPageRoute(builder: (context)=> new EEScreen())
-          // );
-          break;
-        }
-      case 6:
-        {
-          // Navigator.push(
-          //   context,
-          //   new MaterialPageRoute(builder: (context)=> new ENTCScreen())
-          // );
-          break;
-        }
-      case 7:
-        {
-          // Navigator.push(
-          //   context,
-          //   new MaterialPageRoute(builder: (context)=> new MSEScreen())
-          // );
-          break;
-        }
-      case 8:
-        {
-          Navigator.push(context,
-              new MaterialPageRoute(builder: (context) => new Sem1Screen()));
-          break;
-        }
-    }
+          children: [],
+        ),
+      ),
+    );
   }
 }
