@@ -53,7 +53,8 @@ class HomePageState extends State<HomePage> {
                           size.width * 0.14,
                           size.height * 0.05),
                       onPressed: () {
-                        Navigator.of(context).push(CSEPageRoute());
+                        // Navigator.of(context).push(CSEPageRoute());
+                        Navigator.pushNamed(context, '/cse');
                       },
                       child: Column(
                         children: <Widget>[

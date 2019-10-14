@@ -20,7 +20,10 @@ class MyApp extends StatelessWidget {
         primaryColor: AppColor.colors[0].color,
       ),
       home: Splash(),
-      routes: {},
+      routes: {
+        '/cse': (context) => CSEScreen(),
+        '/test': (context) => Splash(),
+      },
     );
   }
 }

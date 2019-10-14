@@ -20,11 +20,10 @@ class CSEScreen extends StatefulWidget {
 
 class CSEScreenState extends State<CSEScreen> {
   int sem = 1;
-  final GlobalKey<ScaffoldState> _key = new GlobalKey<ScaffoldState>();
-
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size; //Get current device size
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Row(
@@ -32,28 +31,26 @@ class CSEScreenState extends State<CSEScreen> {
         children: [
           FloatingActionButton(
               child: Icon(Icons.add_circle_outline),
+              heroTag: null,
               onPressed: () {
                 if (sem < 8) {
                   setState(() {
                     sem++;
                   });
-                } else {
-                  _key.currentState.showSnackBar(
-                    SnackBar(
-                      content: Text("Can't add more semesters !"),
-                    ),
-                  );
                 }
               }),
           SizedBox(
             width: size.width * 0.05,
           ),
           FloatingActionButton(
+            heroTag: null,
             child: Icon(Icons.remove_circle_outline),
             onPressed: () {
-              setState(() {
-                sem--;
-              });
+              if (sem > 1) {
+                setState(() {
+                  sem--;
+                });
+              }
             },
           ),
         ],
@@ -77,51 +74,8 @@ class CSEScreenState extends State<CSEScreen> {
           builder: (context, cseSnap) {
             switch (cseSnap.connectionState) {
               case ConnectionState.none:
-                return Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    size.width * 0.35,
-                    size.height * 0.425,
-                    size.width * 0.35,
-                    size.height * 0.425,
-                  ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: size.height * 0.05,
-                    width: size.width * 0.3,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: AppColor.colors[1].color,
-                      ),
-                      color: Colors.white,
-                    ),
-                    child: Text('Error Occured !'),
-                  ),
-                );
               case ConnectionState.active:
               case ConnectionState.waiting:
-                return Padding(
-                  padding: EdgeInsets.fromLTRB(
-                    size.width * 0.35,
-                    size.height * 0.425,
-                    size.width * 0.35,
-                    size.height * 0.425,
-                  ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    height: size.height * 0.05,
-                    width: size.width * 0.3,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: AppColor.colors[1].color,
-                        //color: Color.fromRGBO(36, 209, 99, 0.9),
-                      ),
-                      color: Colors.white,
-                    ),
-                    child: Text('Loading ...'),
-                  ),
-                );
               case ConnectionState.done:
                 if (cseSnap.hasError) return Text('Error: ${cseSnap.error}');
                 return ListView.builder(
@@ -131,7 +85,7 @@ class CSEScreenState extends State<CSEScreen> {
                       context,
                       size,
                       cseSnap.data.semesters[position],
-                    ); //builds sem per item in the list from db
+                    ); //builds sem per item in the list fromjson
                   },
                 );
             }
@@ -143,27 +97,91 @@ class CSEScreenState extends State<CSEScreen> {
   }
 
   Widget buildSem(context, size, sem) {
+    String dropdownValue ='One';
     return Padding(
       padding: EdgeInsets.fromLTRB(size.width * 0.08, size.height * 0.02,
           size.width * 0.08, size.height * 0.02),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
+      child: RaisedButton(
+        color: Colors.white,
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  content: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: DropdownButton<String>(
+                            value: dropdownValue,
+                            icon: Icon(Icons.arrow_downward),
+                            iconSize: 24,
+                            elevation: 16,
+                            style: TextStyle(color: AppColor.colors[0].color),
+                            underline: Container(
+                              height: 2,
+                              color: AppColor.colors[0].color,
+                            ),
+                            onChanged: (String newValue) {
+                              setState(() {
+                                dropdownValue = newValue;
+                              });
+                            },
+                            items: <String>['One', 'Two', 'Free', 'Four']
+                                .map<DropdownMenuItem<String>>((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Text(value),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: TextFormField(),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: RaisedButton(
+                            child: Text("Submit"),
+                            onPressed: () {
+                              if (_formKey.currentState.validate()) {
+                                _formKey.currentState.save();
+                              }
+                            },
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              });
+        },
+        child: Text(
+          'Semester ${sem.sem}',
+          style: TextStyle(
             color: AppColor.colors[1].color,
+            fontSize: size.height * 0.02,
           ),
-          color: Colors.white,
         ),
-        child: ExpansionTile(
-          title: Text(
-            'Semester ${sem.sem}',
-            style: TextStyle(
-              color: AppColor.colors[1].color,
-              fontSize: size.height * 0.02,
-            ),
-          ),
-          children: [],
-        ),
+      ),
+    );
+  }
+
+  Widget buildSemDetails(sem, i) {
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      padding: EdgeInsets.fromLTRB(
+        size.width * 0.0,
+        size.height * 0.02,
+        size.width * 0.0,
+        size.height * 0.02,
+      ),
+      child: Column(
+        children: <Widget>[Text('Module Code: ${sem.modules[i].moduleId}')],
       ),
     );
   }
